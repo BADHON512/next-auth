@@ -1,5 +1,25 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { CreateUser } from './../../utils/hellper';
+import ConnectDB from './../../utils/connectDB';
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+
+export default async function handler(req, res) {
+    
+  const {method}=req
+  switch (method) {
+    case "GET":
+
+ 
+      break;
+      case "POST":
+        await ConnectDB()
+          CreateUser(req,res)
+      break;
+  
+    default:
+      break;
+  }
+  
+           
+ 
 }
